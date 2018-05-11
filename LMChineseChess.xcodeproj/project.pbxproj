@@ -7,15 +7,25 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4DD360293655A3E107E127E8 /* Pods_LMChineseChessUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D5A70A04CFAA19AF2F3C0CB /* Pods_LMChineseChessUITests.framework */; };
+		7ACAA85ECA027A9513068966 /* Pods_LMChineseChessTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B26DF162BDF88A0CB92BFC53 /* Pods_LMChineseChessTests.framework */; };
+		9E5D1AAB20A5675800861451 /* LMChineseChessManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E5D1AAA20A5675800861451 /* LMChineseChessManager.m */; };
 		9E8A3EB120A2E7D400EB72FF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E8A3EB020A2E7D400EB72FF /* AppDelegate.m */; };
 		9E8A3EB420A2E7D400EB72FF /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E8A3EB320A2E7D400EB72FF /* ViewController.m */; };
-		9E8A3EB720A2E7D400EB72FF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9E8A3EB520A2E7D400EB72FF /* Main.storyboard */; };
 		9E8A3EBA20A2E7D400EB72FF /* LMChineseChess.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9E8A3EB820A2E7D400EB72FF /* LMChineseChess.xcdatamodeld */; };
 		9E8A3EBC20A2E7E800EB72FF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9E8A3EBB20A2E7E800EB72FF /* Assets.xcassets */; };
 		9E8A3EBF20A2E7E800EB72FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9E8A3EBD20A2E7E800EB72FF /* LaunchScreen.storyboard */; };
 		9E8A3EC220A2E7E800EB72FF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E8A3EC120A2E7E800EB72FF /* main.m */; };
 		9E8A3ECC20A2E7E900EB72FF /* LMChineseChessTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E8A3ECB20A2E7E900EB72FF /* LMChineseChessTests.m */; };
 		9E8A3ED720A2E7E900EB72FF /* LMChineseChessUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E8A3ED620A2E7E900EB72FF /* LMChineseChessUITests.m */; };
+		9E8A3EF120A2ECB000EB72FF /* LMViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E8A3EF020A2ECB000EB72FF /* LMViewController.m */; };
+		9E8A3EF420A2ECC900EB72FF /* LMNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E8A3EF320A2ECC900EB72FF /* LMNavigationController.m */; };
+		9E8A3EF720A2ECE100EB72FF /* LMChineseChessVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E8A3EF620A2ECE100EB72FF /* LMChineseChessVC.m */; };
+		9E8A3EFA20A2F0C800EB72FF /* LMChineseChessView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E8A3EF920A2F0C800EB72FF /* LMChineseChessView.m */; };
+		9E8D6B2920A3EA4300262137 /* LMChessmanButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E8D6B2820A3EA4300262137 /* LMChessmanButton.m */; };
+		9E8D6B2C20A3EA5700262137 /* LMChessmanModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E8D6B2B20A3EA5700262137 /* LMChessmanModel.m */; };
+		9E8D6B3020A4481F00262137 /* LMCoordinate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E8D6B2F20A4481F00262137 /* LMCoordinate.m */; };
+		EC70F0AA323E0E6D52CA7C59 /* Pods_LMChineseChess.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAD5DBAE84080BD010C4BCC3 /* Pods_LMChineseChess.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,12 +46,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2D5A70A04CFAA19AF2F3C0CB /* Pods_LMChineseChessUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LMChineseChessUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9E5D1AA920A5675800861451 /* LMChineseChessManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LMChineseChessManager.h; sourceTree = "<group>"; };
+		9E5D1AAA20A5675800861451 /* LMChineseChessManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LMChineseChessManager.m; sourceTree = "<group>"; };
 		9E8A3EAC20A2E7D400EB72FF /* LMChineseChess.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LMChineseChess.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E8A3EAF20A2E7D400EB72FF /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		9E8A3EB020A2E7D400EB72FF /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		9E8A3EB220A2E7D400EB72FF /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		9E8A3EB320A2E7D400EB72FF /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		9E8A3EB620A2E7D400EB72FF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9E8A3EB920A2E7D400EB72FF /* LMChineseChess.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = LMChineseChess.xcdatamodel; sourceTree = "<group>"; };
 		9E8A3EBB20A2E7E800EB72FF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9E8A3EBE20A2E7E800EB72FF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -53,6 +65,30 @@
 		9E8A3ED220A2E7E900EB72FF /* LMChineseChessUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LMChineseChessUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E8A3ED620A2E7E900EB72FF /* LMChineseChessUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LMChineseChessUITests.m; sourceTree = "<group>"; };
 		9E8A3ED820A2E7E900EB72FF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9E8A3EEB20A2E9CE00EB72FF /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		9E8A3EED20A2EA4200EB72FF /* LMCommon.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LMCommon.h; sourceTree = "<group>"; };
+		9E8A3EEF20A2ECB000EB72FF /* LMViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LMViewController.h; sourceTree = "<group>"; };
+		9E8A3EF020A2ECB000EB72FF /* LMViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LMViewController.m; sourceTree = "<group>"; };
+		9E8A3EF220A2ECC900EB72FF /* LMNavigationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LMNavigationController.h; sourceTree = "<group>"; };
+		9E8A3EF320A2ECC900EB72FF /* LMNavigationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LMNavigationController.m; sourceTree = "<group>"; };
+		9E8A3EF520A2ECE100EB72FF /* LMChineseChessVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LMChineseChessVC.h; sourceTree = "<group>"; };
+		9E8A3EF620A2ECE100EB72FF /* LMChineseChessVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LMChineseChessVC.m; sourceTree = "<group>"; };
+		9E8A3EF820A2F0C800EB72FF /* LMChineseChessView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LMChineseChessView.h; sourceTree = "<group>"; };
+		9E8A3EF920A2F0C800EB72FF /* LMChineseChessView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LMChineseChessView.m; sourceTree = "<group>"; };
+		9E8D6B2720A3EA4300262137 /* LMChessmanButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LMChessmanButton.h; sourceTree = "<group>"; };
+		9E8D6B2820A3EA4300262137 /* LMChessmanButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LMChessmanButton.m; sourceTree = "<group>"; };
+		9E8D6B2A20A3EA5700262137 /* LMChessmanModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LMChessmanModel.h; sourceTree = "<group>"; };
+		9E8D6B2B20A3EA5700262137 /* LMChessmanModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LMChessmanModel.m; sourceTree = "<group>"; };
+		9E8D6B2E20A4481F00262137 /* LMCoordinate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LMCoordinate.h; sourceTree = "<group>"; };
+		9E8D6B2F20A4481F00262137 /* LMCoordinate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LMCoordinate.m; sourceTree = "<group>"; };
+		A12AC64699838B470C0A097C /* Pods-LMChineseChessUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LMChineseChessUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LMChineseChessUITests/Pods-LMChineseChessUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		B26DF162BDF88A0CB92BFC53 /* Pods_LMChineseChessTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LMChineseChessTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D3D90A1F2F484766DD47F33F /* Pods-LMChineseChess.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LMChineseChess.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LMChineseChess/Pods-LMChineseChess.debug.xcconfig"; sourceTree = "<group>"; };
+		DD5A68C271C1434F4C08F35F /* Pods-LMChineseChessTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LMChineseChessTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-LMChineseChessTests/Pods-LMChineseChessTests.release.xcconfig"; sourceTree = "<group>"; };
+		EAD5DBAE84080BD010C4BCC3 /* Pods_LMChineseChess.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LMChineseChess.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EC419CE4520C1F5EE2697E4D /* Pods-LMChineseChessTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LMChineseChessTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LMChineseChessTests/Pods-LMChineseChessTests.debug.xcconfig"; sourceTree = "<group>"; };
+		EF673869E2BD9978D4A3A3AF /* Pods-LMChineseChessUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LMChineseChessUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-LMChineseChessUITests/Pods-LMChineseChessUITests.release.xcconfig"; sourceTree = "<group>"; };
+		F3669EDFEA313E802B59FF1A /* Pods-LMChineseChess.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LMChineseChess.release.xcconfig"; path = "Pods/Target Support Files/Pods-LMChineseChess/Pods-LMChineseChess.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +96,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EC70F0AA323E0E6D52CA7C59 /* Pods_LMChineseChess.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -67,6 +104,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7ACAA85ECA027A9513068966 /* Pods_LMChineseChessTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,12 +112,26 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4DD360293655A3E107E127E8 /* Pods_LMChineseChessUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6E1C3578C3CBD960771B627D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D3D90A1F2F484766DD47F33F /* Pods-LMChineseChess.debug.xcconfig */,
+				F3669EDFEA313E802B59FF1A /* Pods-LMChineseChess.release.xcconfig */,
+				EC419CE4520C1F5EE2697E4D /* Pods-LMChineseChessTests.debug.xcconfig */,
+				DD5A68C271C1434F4C08F35F /* Pods-LMChineseChessTests.release.xcconfig */,
+				A12AC64699838B470C0A097C /* Pods-LMChineseChessUITests.debug.xcconfig */,
+				EF673869E2BD9978D4A3A3AF /* Pods-LMChineseChessUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		9E8A3EA320A2E7D400EB72FF = {
 			isa = PBXGroup;
 			children = (
@@ -87,6 +139,8 @@
 				9E8A3ECA20A2E7E900EB72FF /* LMChineseChessTests */,
 				9E8A3ED520A2E7E900EB72FF /* LMChineseChessUITests */,
 				9E8A3EAD20A2E7D400EB72FF /* Products */,
+				6E1C3578C3CBD960771B627D /* Pods */,
+				AA862CCAECBD5F7D14B5EA21 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -103,16 +157,21 @@
 		9E8A3EAE20A2E7D400EB72FF /* LMChineseChess */ = {
 			isa = PBXGroup;
 			children = (
+				9E8D6B2520A3EA2000262137 /* Public */,
+				9E8A3EEE20A2EC9B00EB72FF /* Base */,
+				9E8A3EEA20A2E9B900EB72FF /* Common */,
+				9E8A3EE920A2E9B900EB72FF /* Tools */,
+				9E8A3EE420A2E94D00EB72FF /* class */,
 				9E8A3EAF20A2E7D400EB72FF /* AppDelegate.h */,
 				9E8A3EB020A2E7D400EB72FF /* AppDelegate.m */,
 				9E8A3EB220A2E7D400EB72FF /* ViewController.h */,
 				9E8A3EB320A2E7D400EB72FF /* ViewController.m */,
-				9E8A3EB520A2E7D400EB72FF /* Main.storyboard */,
 				9E8A3EBB20A2E7E800EB72FF /* Assets.xcassets */,
 				9E8A3EBD20A2E7E800EB72FF /* LaunchScreen.storyboard */,
 				9E8A3EC020A2E7E800EB72FF /* Info.plist */,
 				9E8A3EC120A2E7E800EB72FF /* main.m */,
 				9E8A3EB820A2E7D400EB72FF /* LMChineseChess.xcdatamodeld */,
+				9E8A3EEB20A2E9CE00EB72FF /* PrefixHeader.pch */,
 			);
 			path = LMChineseChess;
 			sourceTree = "<group>";
@@ -135,6 +194,116 @@
 			path = LMChineseChessUITests;
 			sourceTree = "<group>";
 		};
+		9E8A3EE420A2E94D00EB72FF /* class */ = {
+			isa = PBXGroup;
+			children = (
+				9E8A3EE520A2E94D00EB72FF /* LMChineseChess */,
+			);
+			path = class;
+			sourceTree = "<group>";
+		};
+		9E8A3EE520A2E94D00EB72FF /* LMChineseChess */ = {
+			isa = PBXGroup;
+			children = (
+				9E8A3EE620A2E94D00EB72FF /* Controller */,
+				9E8A3EE720A2E94D00EB72FF /* Model */,
+				9E8A3EE820A2E94D00EB72FF /* View */,
+			);
+			path = LMChineseChess;
+			sourceTree = "<group>";
+		};
+		9E8A3EE620A2E94D00EB72FF /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				9E8A3EF520A2ECE100EB72FF /* LMChineseChessVC.h */,
+				9E8A3EF620A2ECE100EB72FF /* LMChineseChessVC.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		9E8A3EE720A2E94D00EB72FF /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		9E8A3EE820A2E94D00EB72FF /* View */ = {
+			isa = PBXGroup;
+			children = (
+				9E8A3EF820A2F0C800EB72FF /* LMChineseChessView.h */,
+				9E8A3EF920A2F0C800EB72FF /* LMChineseChessView.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		9E8A3EE920A2E9B900EB72FF /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				9E5D1AA920A5675800861451 /* LMChineseChessManager.h */,
+				9E5D1AAA20A5675800861451 /* LMChineseChessManager.m */,
+			);
+			path = Tools;
+			sourceTree = "<group>";
+		};
+		9E8A3EEA20A2E9B900EB72FF /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				9E8A3EED20A2EA4200EB72FF /* LMCommon.h */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		9E8A3EEE20A2EC9B00EB72FF /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				9E8A3EEF20A2ECB000EB72FF /* LMViewController.h */,
+				9E8A3EF020A2ECB000EB72FF /* LMViewController.m */,
+				9E8A3EF220A2ECC900EB72FF /* LMNavigationController.h */,
+				9E8A3EF320A2ECC900EB72FF /* LMNavigationController.m */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		9E8D6B2520A3EA2000262137 /* Public */ = {
+			isa = PBXGroup;
+			children = (
+				9E8D6B2D20A4481300262137 /* LMCoordinate */,
+				9E8D6B2620A3EA2000262137 /* LMChessman */,
+			);
+			path = Public;
+			sourceTree = "<group>";
+		};
+		9E8D6B2620A3EA2000262137 /* LMChessman */ = {
+			isa = PBXGroup;
+			children = (
+				9E8D6B2720A3EA4300262137 /* LMChessmanButton.h */,
+				9E8D6B2820A3EA4300262137 /* LMChessmanButton.m */,
+				9E8D6B2A20A3EA5700262137 /* LMChessmanModel.h */,
+				9E8D6B2B20A3EA5700262137 /* LMChessmanModel.m */,
+			);
+			path = LMChessman;
+			sourceTree = "<group>";
+		};
+		9E8D6B2D20A4481300262137 /* LMCoordinate */ = {
+			isa = PBXGroup;
+			children = (
+				9E8D6B2E20A4481F00262137 /* LMCoordinate.h */,
+				9E8D6B2F20A4481F00262137 /* LMCoordinate.m */,
+			);
+			path = LMCoordinate;
+			sourceTree = "<group>";
+		};
+		AA862CCAECBD5F7D14B5EA21 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				EAD5DBAE84080BD010C4BCC3 /* Pods_LMChineseChess.framework */,
+				B26DF162BDF88A0CB92BFC53 /* Pods_LMChineseChessTests.framework */,
+				2D5A70A04CFAA19AF2F3C0CB /* Pods_LMChineseChessUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -142,9 +311,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9E8A3EDB20A2E7E900EB72FF /* Build configuration list for PBXNativeTarget "LMChineseChess" */;
 			buildPhases = (
+				1D177810880C4D7B7DCBC699 /* [CP] Check Pods Manifest.lock */,
 				9E8A3EA820A2E7D400EB72FF /* Sources */,
 				9E8A3EA920A2E7D400EB72FF /* Frameworks */,
 				9E8A3EAA20A2E7D400EB72FF /* Resources */,
+				61D7A051D4D4353128694E4B /* [CP] Embed Pods Frameworks */,
+				1B130A845D75EF6E24FB5EF7 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -159,9 +331,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9E8A3EDE20A2E7E900EB72FF /* Build configuration list for PBXNativeTarget "LMChineseChessTests" */;
 			buildPhases = (
+				A929ACED07DD1081DFDB711F /* [CP] Check Pods Manifest.lock */,
 				9E8A3EC320A2E7E900EB72FF /* Sources */,
 				9E8A3EC420A2E7E900EB72FF /* Frameworks */,
 				9E8A3EC520A2E7E900EB72FF /* Resources */,
+				4BF178648E64EB15EF245EF6 /* [CP] Embed Pods Frameworks */,
+				AC095CD7677DBB5FF6321F7B /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -177,9 +352,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9E8A3EE120A2E7E900EB72FF /* Build configuration list for PBXNativeTarget "LMChineseChessUITests" */;
 			buildPhases = (
+				C99402D94A57917FE5184F7C /* [CP] Check Pods Manifest.lock */,
 				9E8A3ECE20A2E7E900EB72FF /* Sources */,
 				9E8A3ECF20A2E7E900EB72FF /* Frameworks */,
 				9E8A3ED020A2E7E900EB72FF /* Resources */,
+				CBD270515CA3EEE1D405DDC9 /* [CP] Embed Pods Frameworks */,
+				BFA980E9984FBC7D757AFF5F /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -240,7 +418,6 @@
 			files = (
 				9E8A3EBF20A2E7E800EB72FF /* LaunchScreen.storyboard in Resources */,
 				9E8A3EBC20A2E7E800EB72FF /* Assets.xcassets in Resources */,
-				9E8A3EB720A2E7D400EB72FF /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -260,15 +437,173 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		1B130A845D75EF6E24FB5EF7 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LMChineseChess/Pods-LMChineseChess-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		1D177810880C4D7B7DCBC699 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-LMChineseChess-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4BF178648E64EB15EF245EF6 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LMChineseChessTests/Pods-LMChineseChessTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		61D7A051D4D4353128694E4B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-LMChineseChess/Pods-LMChineseChess-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Masonry/Masonry.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Masonry.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LMChineseChess/Pods-LMChineseChess-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A929ACED07DD1081DFDB711F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-LMChineseChessTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AC095CD7677DBB5FF6321F7B /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LMChineseChessTests/Pods-LMChineseChessTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BFA980E9984FBC7D757AFF5F /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LMChineseChessUITests/Pods-LMChineseChessUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C99402D94A57917FE5184F7C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-LMChineseChessUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CBD270515CA3EEE1D405DDC9 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LMChineseChessUITests/Pods-LMChineseChessUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		9E8A3EA820A2E7D400EB72FF /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9E8A3EFA20A2F0C800EB72FF /* LMChineseChessView.m in Sources */,
 				9E8A3EB420A2E7D400EB72FF /* ViewController.m in Sources */,
+				9E8D6B2920A3EA4300262137 /* LMChessmanButton.m in Sources */,
+				9E8A3EF720A2ECE100EB72FF /* LMChineseChessVC.m in Sources */,
 				9E8A3EBA20A2E7D400EB72FF /* LMChineseChess.xcdatamodeld in Sources */,
+				9E8A3EF420A2ECC900EB72FF /* LMNavigationController.m in Sources */,
+				9E8A3EF120A2ECB000EB72FF /* LMViewController.m in Sources */,
 				9E8A3EC220A2E7E800EB72FF /* main.m in Sources */,
+				9E8D6B2C20A3EA5700262137 /* LMChessmanModel.m in Sources */,
+				9E8D6B3020A4481F00262137 /* LMCoordinate.m in Sources */,
 				9E8A3EB120A2E7D400EB72FF /* AppDelegate.m in Sources */,
+				9E5D1AAB20A5675800861451 /* LMChineseChessManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -304,14 +639,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		9E8A3EB520A2E7D400EB72FF /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				9E8A3EB620A2E7D400EB72FF /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		9E8A3EBD20A2E7E800EB72FF /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -435,10 +762,14 @@
 		};
 		9E8A3EDC20A2E7E900EB72FF /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D3D90A1F2F484766DD47F33F /* Pods-LMChineseChess.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2AVPVD4B6T;
+				GCC_PREFIX_HEADER = LMChineseChess/PrefixHeader.pch;
 				INFOPLIST_FILE = LMChineseChess/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -451,10 +782,14 @@
 		};
 		9E8A3EDD20A2E7E900EB72FF /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F3669EDFEA313E802B59FF1A /* Pods-LMChineseChess.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2AVPVD4B6T;
+				GCC_PREFIX_HEADER = LMChineseChess/PrefixHeader.pch;
 				INFOPLIST_FILE = LMChineseChess/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -467,6 +802,7 @@
 		};
 		9E8A3EDF20A2E7E900EB72FF /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EC419CE4520C1F5EE2697E4D /* Pods-LMChineseChessTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -485,6 +821,7 @@
 		};
 		9E8A3EE020A2E7E900EB72FF /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DD5A68C271C1434F4C08F35F /* Pods-LMChineseChessTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -503,6 +840,7 @@
 		};
 		9E8A3EE220A2E7E900EB72FF /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A12AC64699838B470C0A097C /* Pods-LMChineseChessUITests.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = LMChineseChessUITests/Info.plist;
@@ -520,6 +858,7 @@
 		};
 		9E8A3EE320A2E7E900EB72FF /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EF673869E2BD9978D4A3A3AF /* Pods-LMChineseChessUITests.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = LMChineseChessUITests/Info.plist;
