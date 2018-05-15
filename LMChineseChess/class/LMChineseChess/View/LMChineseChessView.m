@@ -10,7 +10,7 @@
 #define rowGridNum  4       //上下部分格子行数
 #define colLineNum 9        //线列数
 
-#define chessmanSizeRate 0.7//棋子宽度与格子宽度比例
+#define chessmanSizeRate 0.9//棋子宽度与格子宽度比例
 
 /*
  LMChessmanType_Rooks,       //车

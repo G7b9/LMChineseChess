@@ -35,7 +35,7 @@
 - (void)setSelected:(BOOL)selected
 {
     [super setSelected:selected];
-    self.backgroundColor = selected ? [UIColor blueColor] : [UIColor whiteColor];
+    self.backgroundColor = selected ? [UIColor yellowColor] : (self.chessmanModel.isRed ? [UIColor blackColor] : [UIColor whiteColor]);
 }
 #pragma mark - extension function
 /*
@@ -61,7 +61,7 @@
     //设置颜色
     [self setTitleColor:chessmanModel.isRed ? [UIColor redColor] : [UIColor blackColor] forState:UIControlStateNormal];
     //设置背景颜色
-    self.backgroundColor = [UIColor whiteColor];
+    self.backgroundColor = chessmanModel.isRed ? [UIColor blackColor] : [UIColor whiteColor];
 }
 - (void)setCoordinate:(LMCoordinate *)coordinate
 {
