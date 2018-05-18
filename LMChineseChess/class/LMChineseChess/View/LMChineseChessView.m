@@ -42,12 +42,10 @@
 @property (strong, nonatomic) NSMutableArray<LMChessmanButton *> *redChessmanButtonArr;
 //黑方棋子
 @property (strong, nonatomic) NSMutableArray<LMChessmanButton *> *blackChessmanButtonArr;
-////是否是红方先行
-//@property (assign, nonatomic, getter=isRedStart) BOOL redStart;
-////面向自己这边是否是红方
-//@property (assign, nonatomic, getter=isMeIsred) BOOL meIsRed;
-////下一步是否是红棋走
-//@property (assign, nonatomic, getter=isNextIsRed) BOOL nextIsRed;
+//红方老帥
+@property (strong, nonatomic) LMChessmanButton *redKingButton;
+//黑方老将
+@property (strong, nonatomic) LMChessmanButton *blackKingButton;
 //选中的棋子
 @property (strong, nonatomic) LMChessmanButton *selectedButton;
 //棋子移动终点位置
@@ -154,6 +152,14 @@
     }
     for (NSInteger i = 0; i < coordinateArr.count; ++i) {
         LMChessmanButton *button = [LMChessmanButton chessmanButtonWithType:type andNumber:i isRed:isRed];
+        //绑定老帥、老将
+        if (type == LMChessmanType_king) {
+            if (isRed) {
+                self.redKingButton = button;
+            } else {
+                self.blackKingButton = button;
+            }
+        }
         [button addTarget:self action:@selector(selectedAction:) forControlEvents:UIControlEventTouchUpInside];
         //设置圆角
         [button setCornerRadiusWith:buttonWidth * 0.5];
@@ -210,7 +216,7 @@
         }
         sender.selected = YES;
         self.selectedButton = sender;
-    } else {//选中第二课棋子
+    } else {//选中第二颗棋子
         if (self.selectedButton.chessmanModel.isRed == sender.chessmanModel.isRed) {//选择的同一方的棋子
             if ([sender isEqual:self.selectedButton]) {//选中/取消选中当前棋子
                 sender.selected = !sender.isSelected;
@@ -254,6 +260,10 @@
             //取消选中
             self.selectedButton.selected = NO;
             self.selectedButton = nil;
+            
+            //检查将军
+            [self checkCheck];
+            
             //开启用户交互
             self.userInteractionEnabled = YES;
         
@@ -292,13 +302,61 @@
             return;
         }
     }
-    //该位置没有棋子，正常移动
+    //=================== 该位置没有棋子，正常移动 ===================
     
     //判断能否移动
 //    if ([kChineseChessManager isModel:self.selectedButton.chessmanModel canMoveToCoordinate:coordinate withChessmanArr:self.chessmanButtonArr] == NO) {
     if ([kChineseChessManager isModel:self.selectedButton.chessmanModel canUpdateToCoordinate:coordinate withChessmanArr:self.chessmanButtonArr] == NO) {
         NSLog(@"不能更新到这个位置");
         return;
+    }
+    //=================== 开始移动 ===================
+    LMCoordinate *tempCoordinate = [LMCoordinate coordinateWithX:self.selectedButton.coordinate.x withY:self.selectedButton.coordinate.y];
+    self.selectedButton.coordinate.x = coordinate.x;
+    self.selectedButton.coordinate.y = coordinate.y;
+    BOOL isCanMove = YES;
+    //将军提示
+    NSString *checkedTipStr;
+    switch (kChineseChessManager.checkedType) {
+        case LMCheckedType_redChecked:{
+            checkedTipStr = @"红方正在被将军";
+            isCanMove = !([kChineseChessManager isCheckedWithRedKingModel:self.redKingButton.chessmanModel andBlackModelArr:self.blackChessmanButtonArr withButtonArr:self.chessmanButtonArr] == kChineseChessManager.checkedType);
+        }
+            break;
+        case LMCheckedType_blackChecked:{
+            checkedTipStr = @"黑方正在被将军";
+            isCanMove = !(kChineseChessManager.checkedType == [kChineseChessManager isCheckedWithBlackKingModel:self.blackKingButton.chessmanModel andRedModelArr:self.redChessmanButtonArr withButtonArr:self.chessmanButtonArr]);
+        }
+            break;
+        case LMCheckedType_noChecked:{
+            checkedTipStr = @"将会被将军！不能走这里！";
+            BOOL redWillBeChecked = [kChineseChessManager isCheckedWithRedKingModel:self.redKingButton.chessmanModel andBlackModelArr:self.blackChessmanButtonArr withButtonArr:self.chessmanButtonArr] == LMCheckedType_redChecked;
+            BOOL blackWillBeChecked = [kChineseChessManager isCheckedWithBlackKingModel:self.blackKingButton.chessmanModel andRedModelArr:self.redChessmanButtonArr withButtonArr:self.chessmanButtonArr] == LMCheckedType_blackChecked;
+            NSLog(@"========>redWillBeChecked = %d blackWillBeChecked = %d", redWillBeChecked, blackWillBeChecked);
+//            if ((redWillBeChecked && kChineseChessManager.isRedStart) || (blackWillBeChecked && !kChineseChessManager.isRedStart)) {
+//
+//            }
+            NSLog(@"kChineseChessManager.isNextIsRed = %d", kChineseChessManager.isNextIsRed);
+            isCanMove = !((redWillBeChecked && kChineseChessManager.isNextIsRed) || (blackWillBeChecked && !kChineseChessManager.isNextIsRed));
+            NSLog(@"-------->isCanMove = %d", isCanMove);
+        }
+            break;
+        default:
+            break;
+    }
+    
+    if (!isCanMove) {//依旧被将
+        self.selectedButton.coordinate.x = tempCoordinate.x;
+        self.selectedButton.coordinate.y = tempCoordinate.y;
+        MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:[UIApplication sharedApplication].keyWindow animated:YES];
+        hud.mode = MBProgressHUDModeText;
+        hud.label.text = checkedTipStr;
+        hud.offset = CGPointMake(0.f, MBProgressMaxOffset);
+        [hud hideAnimated:YES afterDelay:0.6f];
+        return;
+    } else {//没有被将了
+        self.selectedButton.coordinate.x = tempCoordinate.x;
+        self.selectedButton.coordinate.y = tempCoordinate.y;
     }
     
     //终点坐标（左上角）
@@ -323,11 +381,28 @@
         //取消选中
         self.selectedButton.selected = NO;
         self.selectedButton = nil;
+        //检查将军
+        [self checkCheck];
         //开启用户交互
         self.userInteractionEnabled = YES;
     }];
 }
 #pragma mark - extension function
+/*
+ 检查将军
+ */
+- (void)checkCheck
+{
+    kChineseChessManager.checkedType = [kChineseChessManager isCheckedWithRedKingModel:self.redKingButton.chessmanModel andBlackKingModel:self.blackKingButton.chessmanModel withRedModelArr:self.redChessmanButtonArr anBlackModelArr:self.blackChessmanButtonArr withButtonArr:self.chessmanButtonArr];
+    if (kChineseChessManager.checkedType != LMCheckedType_noChecked) {
+        NSLog(@"将军！!!!!!!!!!!!!!!!!!!");
+        MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:[UIApplication sharedApplication].keyWindow animated:YES];
+        hud.mode = MBProgressHUDModeText;
+        hud.label.text = @"将军";
+        hud.offset = CGPointMake(0.f, MBProgressMaxOffset);
+        [hud hideAnimated:YES afterDelay:0.6f];
+    }
+}
 - (LMCoordinate *)coordinateWithTouchlocation:(CGPoint)point
 {
     CGFloat gridWidth = SCREEN_WIDTH / gridColNum;          //格子的宽

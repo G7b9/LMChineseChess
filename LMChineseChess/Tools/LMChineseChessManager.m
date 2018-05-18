@@ -11,6 +11,10 @@
 
 static LMChineseChessManager* kLMChineseChessManager = nil;
 
+
+/**
+ 方位
+ */
 typedef NS_ENUM(NSInteger, LMDirectionType) {
     LMDirectionType_top,            //上
     LMDirectionType_top_left,       //上左
@@ -34,6 +38,8 @@ typedef NS_ENUM(NSInteger, LMDirectionType) {
     self.meIsRed = YES;
     //下一步是否是是红棋走
     self.nextIsRed = YES;
+    //清空被将
+    self.checkedType = LMCheckedType_noChecked;
 }
 /**
  是否能选中棋子
@@ -49,12 +55,20 @@ typedef NS_ENUM(NSInteger, LMDirectionType) {
 {
     //先简单判断  需要优化
     if ((self.isNextIsRed == firstChessmanModel.isRed) && (self.isNextIsRed != secondChessmanModel.isRed)) {//吃别人的子
-        if ([self isModel:firstChessmanModel canMoveToCoordinate:secondChessmanModel.coordinate withChessmanArr:chessmanButtonArr] && [self isMeetModel:firstChessmanModel withDestinationCoordinate:secondChessmanModel.coordinate withChessmanArr:chessmanButtonArr withActiontype:LMChessmanActionType_eat]) {//当前棋子是否能移动到下个位置 && 附加规则
-            return YES;
-        } else {//不能移动到下个位置
-            return NO;
-        }
+        //判断是否在攻击范围内
+        return [self isModel:firstChessmanModel canAttackModel:secondChessmanModel withChessmanArr:chessmanButtonArr];
     } else {//不能吃自己的子
+        return NO;
+    }
+}
+/*
+ 是否 firstChessmanModel 能攻击到 secondChessmanModel 的位置
+ */
+- (BOOL)isModel:(LMChessmanModel *)firstChessmanModel canAttackModel:(LMChessmanModel *)secondChessmanModel withChessmanArr:(NSMutableArray<LMChessmanButton *> *)chessmanButtonArr
+{
+    if ([self isModel:firstChessmanModel canMoveToCoordinate:secondChessmanModel.coordinate withChessmanArr:chessmanButtonArr] && [self isMeetModel:firstChessmanModel withDestinationCoordinate:secondChessmanModel.coordinate withChessmanArr:chessmanButtonArr withActiontype:LMChessmanActionType_eat]) {//当前棋子是否能移动到下个位置 && 附加规则
+        return YES;
+    } else {//不能移动到下个位置
         return NO;
     }
 }
@@ -377,7 +391,7 @@ typedef NS_ENUM(NSInteger, LMDirectionType) {
     return NO;
 }
 /*
- 中间是否有障碍 @[是否有障碍, 障碍的数量]
+ 中间是否有障碍 障碍的数量
  */
 - (NSInteger)isHaveBarrierWirhModel:(LMChessmanModel *)chessmanModel WithDestinationCoordinate:(LMCoordinate *)coordinate withChessmanArr:(NSMutableArray<LMChessmanButton *> *)chessmanButtonArr
 {
@@ -408,7 +422,8 @@ typedef NS_ENUM(NSInteger, LMDirectionType) {
     //中间障碍数量
     NSInteger barrierNum = 0;
     for (NSInteger i = 0; i < chessmanButtonArr.count; ++i) {
-        if (chessmanButtonArr[i].isHidden == NO) {//场上的棋子
+//        if (chessmanButtonArr[i].isHidden == NO) {//场上的棋子
+        if (chessmanButtonArr[i].isExist) {//场上的棋子
             if (isAlongWithX && (chessmanButtonArr[i].coordinate.y == coordinate.y) && (chessmanButtonArr[i].coordinate.x < maxLocation) && (chessmanButtonArr[i].coordinate.x > minLocation)) {//沿着 x 轴走
                 //有障碍棋子
                 NSLog(@"中间有障碍棋子");
@@ -431,11 +446,56 @@ typedef NS_ENUM(NSInteger, LMDirectionType) {
 - (LMChessmanButton *)chessmanButtonWithCoordinate:(LMCoordinate *)coordinate withChessmanArr:(NSMutableArray<LMChessmanButton *> *)chessmanButtonArr
 {
     for (NSInteger i = 0; i < chessmanButtonArr.count; ++i) {
-        if ((chessmanButtonArr[i].isHidden == NO) && [coordinate isEqualtToCoordinate:chessmanButtonArr[i].coordinate]) {
+//        if ((chessmanButtonArr[i].isHidden == NO) && [coordinate isEqualtToCoordinate:chessmanButtonArr[i].coordinate]) {
+        if ((chessmanButtonArr[i].isExist) && [coordinate isEqualtToCoordinate:chessmanButtonArr[i].coordinate]) {
             return chessmanButtonArr[i];
         }
     }
     return nil;
+}
+/*
+ 判断是否处于将军的状态
+ */
+- (LMCheckedType)isCheckedWithRedKingModel:(LMChessmanModel *)redKingModel andBlackKingModel:(LMChessmanModel *)blackKingModel withRedModelArr:(NSMutableArray<LMChessmanButton *> *)redButtonArr anBlackModelArr:(NSMutableArray<LMChessmanButton *> *)blackButtonArr withButtonArr:(NSMutableArray<LMChessmanButton *> *)chessmanButtonArr
+{
+    //循环判断自红方的老帅是否在别人的攻击范围内
+    for (LMChessmanButton *blackFirstModel in blackButtonArr) {
+        if ([self isModel:blackFirstModel.chessmanModel canAttackModel:redKingModel withChessmanArr:chessmanButtonArr]) {
+            return LMCheckedType_redChecked;
+        }
+    }
+    //循环判断黑方的老帅是否在我的攻击范围内
+    for (LMChessmanButton *redFirstModel in redButtonArr) {
+        if ([self isModel:redFirstModel.chessmanModel canAttackModel:blackKingModel withChessmanArr:chessmanButtonArr]) {
+            return LMCheckedType_blackChecked;
+        }
+    }
+    return LMCheckedType_noChecked;
+}
+/*
+ 判断红方是否处于将军的状态
+ */
+- (LMCheckedType)isCheckedWithRedKingModel:(LMChessmanModel *)redKingModel andBlackModelArr:(NSMutableArray<LMChessmanButton *> *)blackButtonArr withButtonArr:(NSMutableArray<LMChessmanButton *> *)chessmanButtonArr
+{
+    for (LMChessmanButton *blackFirstModel in blackButtonArr) {
+        if ([self isModel:blackFirstModel.chessmanModel canAttackModel:redKingModel withChessmanArr:chessmanButtonArr]) {
+            return LMCheckedType_redChecked;
+        }
+    }
+    return LMCheckedType_noChecked;
+}
+/*
+ 判断黑方是否处于将军的状态
+ */
+- (LMCheckedType)isCheckedWithBlackKingModel:(LMChessmanModel *)blackKingModel andRedModelArr:(NSMutableArray<LMChessmanButton *> *)redButtonArr withButtonArr:(NSMutableArray<LMChessmanButton *> *)chessmanButtonArr
+{
+    for (LMChessmanButton *redButton in redButtonArr) {
+        NSLog(@"name = %@ description = %@", redButton.chessmanModel.nameString, redButton.chessmanModel.coordinate.description);
+        if ([self isModel:redButton.chessmanModel canAttackModel:blackKingModel withChessmanArr:chessmanButtonArr]) {
+            return LMCheckedType_blackChecked;
+        }
+    }
+    return LMCheckedType_noChecked;
 }
 //=================== 创建单例 ===================
 /** 单例类方法 */

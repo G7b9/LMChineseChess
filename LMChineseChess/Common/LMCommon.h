@@ -16,4 +16,5 @@
 #define SCREEN_CENTER CGPointMake(SCREEN_WIDTH * 0.5, SCREEN_HEIGHT * 0.5)
 
 #import "Masonry.h"
+#import "MBProgressHUD.h"
 #endif /* LMCommon_h */

@@ -11,9 +11,21 @@
 
 #define kChineseChessManager [LMChineseChessManager sharedInstance]
 
+/*
+ 棋子移动状态
+ */
 typedef NS_ENUM(NSInteger, LMChessmanActionType) {
     LMChessmanActionType_move,      //移动棋子
     LMChessmanActionType_eat,       //吃掉棋子
+};
+
+/*
+ 被将状态
+ */
+typedef NS_ENUM(NSInteger, LMCheckedType) {
+    LMCheckedType_noChecked,        //没有被将
+    LMCheckedType_redChecked,       //红棋被将
+    LMCheckedType_blackChecked,     //红棋被将
 };
 
 // 防止有子类 (感谢评论区网友提醒)
@@ -27,6 +39,8 @@ __attribute__((objc_subclassing_restricted))
 @property (assign, nonatomic, getter=isMeIsRed) BOOL meIsRed;
 //下一步是否是红棋走
 @property (assign, nonatomic, getter=isNextIsRed) BOOL nextIsRed;
+//被将状态
+@property (assign, nonatomic) LMCheckedType checkedType;
 
 /**
  单例类方法
@@ -50,10 +64,17 @@ __attribute__((objc_subclassing_restricted))
  是否 ChessmanModel 能更新到 coordinate
  */
 - (BOOL)isModel:(LMChessmanModel *)chessmanModel canUpdateToCoordinate:(LMCoordinate *)coordinate withChessmanArr:(NSMutableArray<LMChessmanButton *> *)chessmanButtonArr;
-
-//=================== 内部判断 ===================
+//=================== 判断将军 ===================
 /*
- 是否 ChessmanModel 能移动到 coordinate
+ 判断是否处于将军的状态
  */
-//- (BOOL)isModel:(LMChessmanModel *)chessmanModel canMoveToCoordinate:(LMCoordinate *)coordinate  withChessmanArr:(NSMutableArray<LMChessmanButton *> *)chessmanButtonArr;
+- (LMCheckedType)isCheckedWithRedKingModel:(LMChessmanModel *)redKingModel andBlackKingModel:(LMChessmanModel *)blackKingModel withRedModelArr:(NSMutableArray<LMChessmanButton *> *)redButtonArr anBlackModelArr:(NSMutableArray<LMChessmanButton *> *)blackButtonArr withButtonArr:(NSMutableArray<LMChessmanButton *> *)chessmanButtonArr;
+/*
+ 判断红方是否处于将军的状态
+ */
+- (LMCheckedType)isCheckedWithRedKingModel:(LMChessmanModel *)redKingModel andBlackModelArr:(NSMutableArray<LMChessmanButton *> *)blackButtonArr withButtonArr:(NSMutableArray<LMChessmanButton *> *)chessmanButtonArr;
+/*
+ 判断黑方是否处于将军的状态
+ */
+- (LMCheckedType)isCheckedWithBlackKingModel:(LMChessmanModel *)blackKingModel andRedModelArr:(NSMutableArray<LMChessmanButton *> *)redButtonArr withButtonArr:(NSMutableArray<LMChessmanButton *> *)chessmanButtonArr;
 @end

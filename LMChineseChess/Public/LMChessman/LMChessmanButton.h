@@ -11,6 +11,8 @@
 #import "LMCoordinate.h"
 
 @interface LMChessmanButton : UIButton
+//棋子是否存在（棋盘上起作用） 默认是存在的（起作用的）
+@property (assign, nonatomic, getter=isExist) BOOL exist;
 //棋子的二维坐标
 @property (strong, nonatomic) LMCoordinate *coordinate;
 //棋子 model
