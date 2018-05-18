@@ -487,8 +487,8 @@ typedef NS_ENUM(NSInteger, LMDirectionType) {
  */
 - (LMCheckedType)isCheckedWithRedKingModel:(LMChessmanModel *)redKingModel andBlackModelArr:(NSMutableArray<LMChessmanButton *> *)blackButtonArr withButtonArr:(NSMutableArray<LMChessmanButton *> *)chessmanButtonArr
 {
-    for (LMChessmanButton *blackFirstModel in blackButtonArr) {
-        if ([self isModel:blackFirstModel.chessmanModel canAttackModel:redKingModel withChessmanArr:chessmanButtonArr]) {
+    for (LMChessmanButton *blackButton in blackButtonArr) {
+        if (blackButton.isExist && [self isModel:blackButton.chessmanModel canAttackModel:redKingModel withChessmanArr:chessmanButtonArr]) {
             return LMCheckedType_redChecked;
         }
     }
@@ -501,7 +501,7 @@ typedef NS_ENUM(NSInteger, LMDirectionType) {
 {
     for (LMChessmanButton *redButton in redButtonArr) {
         NSLog(@"name = %@ description = %@", redButton.chessmanModel.nameString, redButton.chessmanModel.coordinate.description);
-        if ([self isModel:redButton.chessmanModel canAttackModel:blackKingModel withChessmanArr:chessmanButtonArr]) {
+        if (redButton.isExist && [self isModel:redButton.chessmanModel canAttackModel:blackKingModel withChessmanArr:chessmanButtonArr]) {
             return LMCheckedType_blackChecked;
         }
     }

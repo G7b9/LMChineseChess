@@ -232,6 +232,53 @@
         if ([kChineseChessManager isModel:self.selectedButton.chessmanModel canEatModel:sender.chessmanModel withChessmanArr:self.chessmanButtonArr] == NO) {//不可以吃掉这颗
             return;
         }
+        //=================== 开始吃 ===================
+        LMCoordinate *tempCoordinate = [LMCoordinate coordinateWithX:self.selectedButton.coordinate.x withY:self.selectedButton.coordinate.y];
+        self.selectedButton.coordinate.x = sender.coordinate.x;
+        self.selectedButton.coordinate.y = sender.coordinate.y;
+        sender.exist = NO;
+        BOOL isCanEat = YES;
+        //将军提示
+        NSString *checkedTipStr;
+        switch (kChineseChessManager.checkedType) {
+            case LMCheckedType_redChecked:{
+                checkedTipStr = @"红方正在被将军";
+                isCanEat = !([kChineseChessManager isCheckedWithRedKingModel:self.redKingButton.chessmanModel andBlackModelArr:self.blackChessmanButtonArr withButtonArr:self.chessmanButtonArr] == kChineseChessManager.checkedType);
+            }
+                break;
+            case LMCheckedType_blackChecked:{
+                checkedTipStr = @"黑方正在被将军";
+                isCanEat = !(kChineseChessManager.checkedType == [kChineseChessManager isCheckedWithBlackKingModel:self.blackKingButton.chessmanModel andRedModelArr:self.redChessmanButtonArr withButtonArr:self.chessmanButtonArr]);
+            }
+                break;
+            case LMCheckedType_noChecked:{
+                checkedTipStr = @"将会被将军！不能走这里！";
+                BOOL redWillBeChecked = [kChineseChessManager isCheckedWithRedKingModel:self.redKingButton.chessmanModel andBlackModelArr:self.blackChessmanButtonArr withButtonArr:self.chessmanButtonArr] == LMCheckedType_redChecked;
+                BOOL blackWillBeChecked = [kChineseChessManager isCheckedWithBlackKingModel:self.blackKingButton.chessmanModel andRedModelArr:self.redChessmanButtonArr withButtonArr:self.chessmanButtonArr] == LMCheckedType_blackChecked;
+                isCanEat = !((redWillBeChecked && kChineseChessManager.isNextIsRed) || (blackWillBeChecked && !kChineseChessManager.isNextIsRed));
+            }
+                break;
+            default:
+                break;
+        }
+        
+        self.selectedButton.coordinate.x = tempCoordinate.x;
+        self.selectedButton.coordinate.y = tempCoordinate.y;
+        sender.exist = YES;
+        if (!isCanEat) {//依旧被将
+            MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:[UIApplication sharedApplication].keyWindow animated:YES];
+            hud.mode = MBProgressHUDModeText;
+            hud.label.text = checkedTipStr;
+            hud.offset = CGPointMake(0.f, MBProgressMaxOffset);
+            [hud hideAnimated:YES afterDelay:0.6f];
+            return;
+        }
+        
+        
+        
+        
+        
+        
         NSLog(@"开吃的棋子%@", self.selectedButton.coordinate.description);
         NSLog(@"被吃掉的棋子%@", sender.coordinate.description);
         //禁用用户交互
@@ -291,7 +338,6 @@
     
     
     //如果该位置有棋子，则什么都不做，只能通过选择按钮来吃掉
-//    BOOL isContain = NO;
     for (NSInteger i = 0; i < self.redChessmanButtonArr.count; ++i) {
         if ([self.redChessmanButtonArr[i].coordinate isEqualtToCoordinate:coordinate] && (self.redChessmanButtonArr[i].hidden == NO) ){
             return;
@@ -305,7 +351,6 @@
     //=================== 该位置没有棋子，正常移动 ===================
     
     //判断能否移动
-//    if ([kChineseChessManager isModel:self.selectedButton.chessmanModel canMoveToCoordinate:coordinate withChessmanArr:self.chessmanButtonArr] == NO) {
     if ([kChineseChessManager isModel:self.selectedButton.chessmanModel canUpdateToCoordinate:coordinate withChessmanArr:self.chessmanButtonArr] == NO) {
         NSLog(@"不能更新到这个位置");
         return;
@@ -332,31 +377,22 @@
             checkedTipStr = @"将会被将军！不能走这里！";
             BOOL redWillBeChecked = [kChineseChessManager isCheckedWithRedKingModel:self.redKingButton.chessmanModel andBlackModelArr:self.blackChessmanButtonArr withButtonArr:self.chessmanButtonArr] == LMCheckedType_redChecked;
             BOOL blackWillBeChecked = [kChineseChessManager isCheckedWithBlackKingModel:self.blackKingButton.chessmanModel andRedModelArr:self.redChessmanButtonArr withButtonArr:self.chessmanButtonArr] == LMCheckedType_blackChecked;
-            NSLog(@"========>redWillBeChecked = %d blackWillBeChecked = %d", redWillBeChecked, blackWillBeChecked);
-//            if ((redWillBeChecked && kChineseChessManager.isRedStart) || (blackWillBeChecked && !kChineseChessManager.isRedStart)) {
-//
-//            }
-            NSLog(@"kChineseChessManager.isNextIsRed = %d", kChineseChessManager.isNextIsRed);
             isCanMove = !((redWillBeChecked && kChineseChessManager.isNextIsRed) || (blackWillBeChecked && !kChineseChessManager.isNextIsRed));
-            NSLog(@"-------->isCanMove = %d", isCanMove);
         }
             break;
         default:
             break;
     }
     
+    self.selectedButton.coordinate.x = tempCoordinate.x;
+    self.selectedButton.coordinate.y = tempCoordinate.y;
     if (!isCanMove) {//依旧被将
-        self.selectedButton.coordinate.x = tempCoordinate.x;
-        self.selectedButton.coordinate.y = tempCoordinate.y;
         MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:[UIApplication sharedApplication].keyWindow animated:YES];
         hud.mode = MBProgressHUDModeText;
         hud.label.text = checkedTipStr;
         hud.offset = CGPointMake(0.f, MBProgressMaxOffset);
         [hud hideAnimated:YES afterDelay:0.6f];
         return;
-    } else {//没有被将了
-        self.selectedButton.coordinate.x = tempCoordinate.x;
-        self.selectedButton.coordinate.y = tempCoordinate.y;
     }
     
     //终点坐标（左上角）

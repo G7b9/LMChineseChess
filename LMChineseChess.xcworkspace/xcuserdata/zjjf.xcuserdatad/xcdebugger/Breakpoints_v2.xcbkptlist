@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "LMChineseChess/class/LMChineseChess/View/LMChineseChessView.m"
-            timestampString = "548320409.750273"
+            timestampString = "548321690.016325"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "397"
-            endingLineNumber = "397"
+            startingLineNumber = "433"
+            endingLineNumber = "433"
             landmarkName = "-checkCheck"
             landmarkType = "7">
          </BreakpointContent>
@@ -26,7 +26,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "LMChineseChess/Tools/LMChineseChessManager.m"
-            timestampString = "548320409.7506011"
+            timestampString = "548321690.016392"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "505"
@@ -41,13 +41,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "LMChineseChess/class/LMChineseChess/View/LMChineseChessView.m"
-            timestampString = "548320409.750843"
+            filePath = "LMChineseChess/Tools/LMChineseChessManager.m"
+            timestampString = "548321690.016835"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "341"
-            endingLineNumber = "341"
-            landmarkName = "-touchesBegan:withEvent:"
+            startingLineNumber = "508"
+            endingLineNumber = "508"
+            landmarkName = "-isCheckedWithBlackKingModel:andRedModelArr:withButtonArr:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
