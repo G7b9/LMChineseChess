@@ -66,10 +66,20 @@ typedef NS_ENUM(NSInteger, LMDirectionType) {
  */
 - (BOOL)isModel:(LMChessmanModel *)firstChessmanModel canAttackModel:(LMChessmanModel *)secondChessmanModel withChessmanArr:(NSMutableArray<LMChessmanButton *> *)chessmanButtonArr
 {
-    if ([self isModel:firstChessmanModel canMoveToCoordinate:secondChessmanModel.coordinate withChessmanArr:chessmanButtonArr] && [self isMeetModel:firstChessmanModel withDestinationCoordinate:secondChessmanModel.coordinate withChessmanArr:chessmanButtonArr withActiontype:LMChessmanActionType_eat]) {//当前棋子是否能移动到下个位置 && 附加规则
-        return YES;
-    } else {//不能移动到下个位置
-        return NO;
+    if (firstChessmanModel.chessmanType == LMChessmanType_king && secondChessmanModel.chessmanType == LMChessmanType_king) {//老将之间的精神攻击
+        //判断两个老帥之间是否有棋子(处于直线才可能交流)
+        if (((firstChessmanModel.coordinate.x == secondChessmanModel.coordinate.x) || (firstChessmanModel.coordinate.y == secondChessmanModel.coordinate.y)) && ([self isHaveBarrierWirhModel:firstChessmanModel WithDestinationCoordinate:secondChessmanModel.coordinate withChessmanArr:chessmanButtonArr] == 0)) {
+            NSLog(@"灵魂之间的交流");
+            return YES;
+        } else {
+            return NO;
+        }
+    } else {//普通棋子的肉体攻击
+        if ([self isModel:firstChessmanModel canMoveToCoordinate:secondChessmanModel.coordinate withChessmanArr:chessmanButtonArr] && [self isMeetModel:firstChessmanModel withDestinationCoordinate:secondChessmanModel.coordinate withChessmanArr:chessmanButtonArr withActiontype:LMChessmanActionType_eat]) {//当前棋子是否能移动到下个位置 && 附加规则
+            return YES;
+        } else {//不能移动到下个位置
+            return NO;
+        }
     }
 }
 /*
